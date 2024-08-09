@@ -1,8 +1,9 @@
 "use client";
 
-import { Button, Textarea } from "@nextui-org/react";
 import { Send } from "lucide-react";
 import { type useChat } from "ai/react";
+import { Textarea } from "./ui/textarea";
+import { Button } from "./ui/button";
 
 type HandleInputChange = ReturnType<typeof useChat>["handleInputChange"];
 type HandleSubmit = ReturnType<typeof useChat>["handleSubmit"];
@@ -28,7 +29,6 @@ export const ChatInput = ({
           <div className="relative flex flex-col w-full flex-grow p-4">
             <form onSubmit={handleSubmit} className="relative">
               <Textarea
-                minRows={4}
                 autoFocus
                 onChange={handleInputChange}
                 value={input}
@@ -46,7 +46,7 @@ export const ChatInput = ({
               <Button
                 size="sm"
                 type="submit"
-                className="absolute z-10 border border-border bg-zinc-900 right-2 bottom-2"
+                className="absolute z-10 rounded-full p-2 border border-border bg-blue-600 hover:bg-blue-700 transition-all right-2 bottom-4"
               >
                 <Send className="size-4" />
               </Button>
